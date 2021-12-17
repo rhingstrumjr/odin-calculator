@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+#calc-body {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+#clear {
+    width: 300px;
+}
+
+.button {
+    width: calc(285px / 4);
+}
