@@ -20,6 +20,14 @@ const calculator = {
     }
 }
 
+function toggleDecimal () {
+    if (calculator.input.includes(".")) {
+        document.getElementById("decimal").setAttribute("disabled", true);
+    } else {
+        document.getElementById("decimal").removeAttribute("disabled");
+    }
+}
+
 function clear () {
     calculator.input = [];
     calculator.operator = "";
@@ -61,16 +69,19 @@ function equals () {
         }
     }
     calculator.input = [];
+    toggleDecimal();
 }
 
 function handleNumberClick (e) {
     calculator.input.push(e.target.innerText);
     calculator.val1 = parseFloat(calculator.input.reduce((sum, elem) => sum + elem));
     document.getElementById("screen").innerHTML = calculator.input.reduce((sum, elem) => sum + elem);
+    toggleDecimal()
 }
 
 function handleOperatorClick (e) {
     calculator.input = [];
+    toggleDecimal()
     if (calculator.operator) {
         switch (calculator.operator) {
             case "add":
